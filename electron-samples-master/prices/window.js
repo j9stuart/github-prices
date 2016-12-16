@@ -1,5 +1,6 @@
+
 // Run this function after the page has loaded
-$(function () {
+function repeat () {
 
 var stocks = [
   "CL=F", // Crude oil, http://finance.yahoo.com/quote/CL=F?p=CL=F
@@ -29,7 +30,6 @@ $.ajax(url).done(function (csv) {
 
     // Change between closing price and current price rounded to 2 decimal points.
     var change = Math.round((currentPrice - previousPrice) * 100) / 100
-    console.log(change)
 
     // Add a leading + for positive change
     if (change >= 0) {
@@ -56,4 +56,6 @@ $.ajax(url).done(function (csv) {
   console.error(error)
 })
 
-})
+}
+
+setInterval(repeat,3000)
