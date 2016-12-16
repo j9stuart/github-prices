@@ -33,7 +33,7 @@ $.ajax(url).done(function (csv) {
 
     // Add a leading + for positive change
     if (change >= 0) {
-      change = '+' + Math.round((change/previousPrice) * 100) + '%'
+      change = '+' + Math.round((change/previousPrice) * 10000)/100 + '%'
     }
 
     // Add prices and changes to HTML element
