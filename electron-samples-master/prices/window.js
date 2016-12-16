@@ -29,10 +29,11 @@ $.ajax(url).done(function (csv) {
 
     // Change between closing price and current price rounded to 2 decimal points.
     var change = Math.round((currentPrice - previousPrice) * 100) / 100
+    console.log(change)
 
     // Add a leading + for positive change
     if (change >= 0) {
-      change = '+' + change
+      change = '+' + Math.round((change/previousPrice) * 100) + '%'
     }
 
     // Add prices and changes to HTML element
@@ -46,7 +47,7 @@ $.ajax(url).done(function (csv) {
       $('#silver-price').text(currentPrice.toLocaleString())
       $('#silver-change').text(change)
     }
-      else if (i == 3) { // Silver
+      else if (i == 3) { // Platinum
       $('#platinum-price').text(currentPrice.toLocaleString())
       $('#platinum-change').text(change)
     }
